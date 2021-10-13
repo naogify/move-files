@@ -357,7 +357,50 @@ const iconCategory = [
 "Transport",
 "Transport",
 "Transport",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other",
+"Other"
 ];
+
+const uniqueIcons = [
+  'oneway'
+]
 
 for (let index = 0; index < iconCategory.length; index++) {
 
@@ -365,11 +408,12 @@ for (let index = 0; index < iconCategory.length; index++) {
   const category = iconCategory[index];
   
   const oldFilesPath = path.resolve(__dirname, '..', category, iconName)
-  const newFilesPath = path.join(os.homedir(), 'geolonia/sprites.geolonia.com/src/color', iconName)
+  const newFilesPath = path.join(os.homedir(), 'geolonia/sprites.geolonia.com/src/basic-color', iconName)
 
-  fs.copyFileSync(`${oldFilesPath}-11.svg`, `${newFilesPath}-11.svg`);
-  fs.copyFileSync(`${oldFilesPath}-15.svg`, `${newFilesPath}-15.svg`);
-
+  if (uniqueIcons.includes(iconName)) {
+    fs.copyFileSync(`${oldFilesPath}.svg`, `${newFilesPath}.svg`);
+  } else {
+    fs.copyFileSync(`${oldFilesPath}-11.svg`, `${newFilesPath}-11.svg`);
+    fs.copyFileSync(`${oldFilesPath}-15.svg`, `${newFilesPath}-15.svg`);
+  }
 }
-
-
